@@ -1,0 +1,46 @@
+CREATE TABLE Guests
+(
+
+login_id int NOT NULL,
+name varchar(50),
+lastname varchar(50),
+e­mail varchar(50),
+password varchar(20),
+billing_address.city varchar(20),
+billing_address.street varchar(20),
+billing_address.apartment varchar(20),
+M_id int NOT NULL,
+PRIMARY KEY (login_id),
+FOREIGN KEY (M_id) REFERENCES Manager(id)
+)
+
+CREATE TABLE Manager
+(
+id int NOT NULL,
+name varchar(50),
+lastname varchar(50),
+e­mail varchar(50),
+password varchar(20),
+res_num int NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (res_num) REFERENCES reserves(rsrv_num)
+)
+
+CREATE TABLE reserves
+(
+rsrv_num int NOT NULL,
+check_in varchar(50),
+check_out varchar(50),
+PRIMARY KEY (rsrv_num)
+)
+
+CREATE TABLE Room
+(
+number int NOT NULL,
+price float(),
+smoking boolean(),
+concept varchar(50),
+bed.size varchar(20),
+bed.count int NOT NULL,
+PRIMARY KEY (number)
+)
